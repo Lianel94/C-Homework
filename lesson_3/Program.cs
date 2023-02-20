@@ -8,10 +8,17 @@ Console.Clear();
 Console.Write("Type a 5-digit number: ");
 string userNumber = Console.ReadLine();
 
-if(userNumber[0] == userNumber[4] && userNumber[1] == userNumber[3])
+if(userNumber.Length != 5)
+{
+	Console.WriteLine("Type a 5-digit number, please");
+	return;
+} else if(userNumber[0] == userNumber[4] && userNumber[1] == userNumber[3])
 {
 	Console.WriteLine($"The number {userNumber} is a palindrome");
-} else Console.WriteLine($"The number {userNumber} is NOT a palindrome");
+} else 
+{
+	Console.WriteLine($"The number {userNumber} is NOT a palindrome");
+}
 
 
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
@@ -36,3 +43,19 @@ double z2 = double.Parse(Console.ReadLine());
 double distance = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2));
 Console.WriteLine($"The distance between two points is {distance:f2}");
 
+
+// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+// 3 -> 1, 8, 27
+// 5 -> 1, 8, 27, 64, 125
+
+Console.Write("Type the number: ");
+int userNum = int.Parse(Console.ReadLine());
+int[] result = new int[userNum];
+for(int i = 1; i <= userNum; i++)
+{
+	result[i-1] = i*i*i;
+}
+for(int i = 0; i < userNum; i++)
+{
+	Console.WriteLine($"{result[i]} ");
+}
